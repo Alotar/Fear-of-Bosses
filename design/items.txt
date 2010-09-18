@@ -1,0 +1,15 @@
+Weapons
+  Dagger
+  Sword
+  Axe
+  Mace
+  Spear
+  Staff
+  Bow
+Armor
+  Light
+  Medium
+  Heavy
+  Shield
+Accessories
+Potions

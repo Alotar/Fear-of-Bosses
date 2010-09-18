@@ -1,0 +1,11 @@
+Strength
+  Damage
+Dexterity
+  Accuracy
+  Evasion
+Intelligence
+  Magic Damage
+  Magic Absorption
+  MP
+Endurance
+  HP

@@ -1,0 +1,23 @@
+Human
+  +1 STR
+  +1 DEX
+  +1 INT
+  +1 END
+Orc
+  +3 STR
+  +1 END
+Wood Elf
+  +3 DEX
+  +1 INT
+High Elf
+  +3 INT
+  +1 END
+Dwarf
+  +3 END
+  +1 STR
+Dweller
+  +2 DEX
+  +2 INT
+Demon
+  +2 STR
+  +2 INT

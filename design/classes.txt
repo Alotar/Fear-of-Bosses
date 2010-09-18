@@ -1,0 +1,11 @@
+Warrior
+Rogue
+  Dagger
+Knight
+  Sword
+Lancer
+  Spear
+Archer
+  Bow
+Elementalist
+Healer
