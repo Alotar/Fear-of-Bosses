@@ -21,8 +21,8 @@ class Party {
   std::vector<Entity*> members_;
 };
 
-} // namespace entities
-} // namespace server
-} // namespace fob
+}  // namespace entities
+}  // namespace server
+}  // namespace fob
 
-#endif // FOB_SERVER_ENTITY_PARTY_H_
+#endif  // FOB_SERVER_ENTITY_PARTY_H_

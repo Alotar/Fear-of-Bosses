@@ -1,4 +1,6 @@
-#include "party.cpp"
+#include "party.h"
+
+#include <boost/foreach.hpp>
 
 namespace fob {
 namespace server {
@@ -14,11 +16,9 @@ void Party::AddMember(Entity *member) {
 }
 
 bool Party::RemoveMember(Entity *member) {
-  for (std::vector<Entity*>::iterator iter = members_.begin();
-       iter != members_.end();
-       ++iter) {
-    if (*iter == member) {
-      members_.erase(iter);
+  BOOST_FOREACH (Entity *i, members_) {
+    if (i == member) {
+      members_.erase(i);
       return true;
     }
   }
