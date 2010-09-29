@@ -9,3 +9,5 @@ Intelligence
   MP
 Endurance
   HP
+
+Speed
