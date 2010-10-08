@@ -6,9 +6,14 @@ namespace fob {
 namespace server {
 namespace entities {
 
-Party::Party() {}
+Party::Party(const boost::uuids::uuid &uid)
+  : uid_(uid) {}
 
 Party::~Party() {}
+
+boost::uuids::uuid &uid() {
+  return uid_;
+}
 
 void Party::AddMember(Entity *member) {
   //TODO Bounds

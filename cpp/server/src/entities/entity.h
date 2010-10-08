@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include <boost/uuid/uuid.hpp>
+
 #include "attributes/boundedattribute.h"
 #include "attributes/rangeattribute.h"
 
@@ -12,10 +14,10 @@ namespace entities {
 
 class Entity {
  public:
-  virtual Entity(std::string uid, std::string name);
+  virtual Entity(const boost::uuids::uuid &uid,const std::string &name);
   virtual ~Entity();
 
-  const std::string &uid() const;
+  const boost::uuids::uuid &uid() const;
   const std::string &name() const;
 
   int strength() const;
@@ -40,8 +42,8 @@ class Entity {
   void set_speed(int speed);
 
  private:
-  std::string uid_;
-  std::string name_;
+  const boost::uuids::uuid uid_;
+  const std::string name_;
 
   int strength_;
   int dexterity_;

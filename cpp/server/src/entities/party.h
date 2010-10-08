@@ -2,6 +2,7 @@
 #define FOB_SERVER_ENTITIES_PARTY_H_
 
 #include <vector>
+#include <boost/uuid/uuid.hpp>
 
 namespace fob {
 namespace server {
@@ -9,8 +10,10 @@ namespace entities {
 
 class Party {
  public:
-  Party();
+  Party(const boost::uuids::uuid &uid);
   virtual ~Party();
+
+  boost::uuids::uuid &uid();
 
   void AddMember(Entity *member);
   bool RemoveMember(Entity *member);
@@ -18,6 +21,7 @@ class Party {
   Entity* GetReadyMember();
  
  private:
+  const boost::uuids::uuid uid_;
   std::vector<Entity*> members_;
 };
 

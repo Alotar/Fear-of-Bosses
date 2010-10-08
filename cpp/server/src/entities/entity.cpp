@@ -1,12 +1,12 @@
 #include "entity.h"
 
-Entity::Entity(std::string uid, std::string name)
+Entity::Entity(const boost::uuids::uuid &uid, std::string name)
     : uid_(uid),
       name_(name) {}
 
 Entity::~Entity() {}
 
-const std::string &Entity::uid() const {
+const boost::uuids::uuid &Entity::uid() const {
   return uid_;
 }
 
