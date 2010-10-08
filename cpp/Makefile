@@ -1,5 +1,5 @@
 all:
-  make -C server
+	make -C server
   
 clean:
-  make -C server clean
+	make -C server clean

@@ -1,12 +1,12 @@
-CC     = g++ -g3 --ggdb
+CC     = g++
 CCOPT  = -Wall -fstack-protector-all
 INCLS  = -I. -I.. -I../.. -I../../..
 CFLAGS = $(CCOPT) $(DEFS) $(INCLS)
 LIBS   = 
 
 .cpp.o:
-  @rm -f $@
-  $(CC) $(CFLAGS) -c $*.cpp -o $@
+	@rm -f $@
+	$(CC) $(CFLAGS) -c $*.cpp -o $@
   
 SRC_CORE = $(wildcard *.cpp)
 OBJ_CORE = $(SRC_CORE:.cpp=.o)
@@ -19,4 +19,4 @@ $(SERVER_NAME): $(OBJ_CORE)
   $(CC) $(CFLAGS) $(LDFLAGS) -o $(SERVER_NAME) $(OBJ_CORE) $(LIBS)
 
 clean:
-  rm -f $(OBJ_CORE)
+	rm -f $(OBJ_CORE)
