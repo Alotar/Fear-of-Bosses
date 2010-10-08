@@ -9,7 +9,7 @@ namespace attributes {
 class RangeAttribute {
  public:
   RangeAttribute(int min, int max);
-  virtual ~RangeAttribute;
+  virtual ~RangeAttribute();
 
   int min() const;
   int max() const;

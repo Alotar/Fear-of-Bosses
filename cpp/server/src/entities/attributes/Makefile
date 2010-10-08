@@ -16,7 +16,7 @@ ALL = $(OBJ_CORE)
 all: $(ALL)
   
 $(SERVER_NAME): $(OBJ_CORE)
-  $(CC) $(CFLAGS) $(LDFLAGS) -o $(SERVER_NAME) $(OBJ_CORE) $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(SERVER_NAME) $(OBJ_CORE) $(LIBS)
 
 clean:
 	rm -f $(OBJ_CORE)

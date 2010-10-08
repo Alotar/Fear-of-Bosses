@@ -4,6 +4,8 @@
 #include <vector>
 #include <boost/uuid/uuid.hpp>
 
+#include "entity.h"
+
 namespace fob {
 namespace server {
 namespace entities {
@@ -13,10 +15,10 @@ class Party {
   Party(const boost::uuids::uuid &uid);
   virtual ~Party();
 
-  boost::uuids::uuid &uid();
+  const boost::uuids::uuid &uid();
 
   void AddMember(Entity *member);
-  bool RemoveMember(Entity *member);
+  void RemoveMember(Entity *member);
 
   Entity* GetReadyMember();
  

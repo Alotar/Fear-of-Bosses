@@ -1,8 +1,15 @@
 #include "entity.h"
 
-Entity::Entity(const boost::uuids::uuid &uid, std::string name)
+namespace fob {
+namespace server {
+namespace entities {
+
+Entity::Entity(const boost::uuids::uuid &uid, const std::string &name)
     : uid_(uid),
-      name_(name) {}
+      name_(name),
+      damage_(0,0),
+      mp_(0,0,0),
+      hp_(0,0,0) {}
 
 Entity::~Entity() {}
 
@@ -14,7 +21,7 @@ const std::string &Entity::name() const {
   return name_;
 }
 
-int strength() const {
+int Entity::strength() const {
   return strength_;
 }
 
@@ -30,7 +37,7 @@ int Entity::endurance() const {
   return endurance_;
 }
 
-const RangeAttribute &Entity::damage() const {
+const attributes::RangeAttribute &Entity::damage() const {
   return damage_;
 }
 
@@ -50,11 +57,11 @@ int Entity::m_absorption() const {
   return m_absorption_;
 }
 
-const BoundedAttribute &mp() const {
+const attributes::BoundedAttribute &Entity::mp() const {
   return mp_;
 }
 
-const BoundedAttribute &hp() const {
+const attributes::BoundedAttribute &Entity::hp() const {
   return hp_;
 }
 
@@ -81,3 +88,7 @@ void Entity::set_endurance(int endurance) {
 void Entity::set_speed(int speed) {
   speed_ = speed;
 }
+
+} // namespace entities
+} // namespace server
+} // namespace fob

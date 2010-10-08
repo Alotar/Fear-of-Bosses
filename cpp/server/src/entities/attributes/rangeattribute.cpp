@@ -20,11 +20,11 @@ int RangeAttribute::max() const {
   return max_;
 }
 
-void set_min(int min) {
+void RangeAttribute::set_min(int min) {
   min_ = min;
 }
 
-void set_max(int max) {
+void RangeAttribute::set_max(int max) {
   max_ = max;
 }
 

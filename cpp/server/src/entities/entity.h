@@ -14,7 +14,7 @@ namespace entities {
 
 class Entity {
  public:
-  virtual Entity(const boost::uuids::uuid &uid,const std::string &name);
+  Entity(const boost::uuids::uuid &uid,const std::string &name);
   virtual ~Entity();
 
   const boost::uuids::uuid &uid() const;
@@ -25,13 +25,13 @@ class Entity {
   int intelligence() const;
   int endurance() const;
 
-  const RangeAttribute &damage() const;
+  const attributes::RangeAttribute &damage() const;
   int accuracy() const;
   int evasion() const;
   int m_dammage() const;
   int m_absorption() const;
-  const BoundedAttribute &mp() const;
-  const BoundedAttribute &hp() const;
+  const attributes::BoundedAttribute &mp() const;
+  const attributes::BoundedAttribute &hp() const;
   int speed() const;
 
  protected:
@@ -50,13 +50,13 @@ class Entity {
   int intelligence_;
   int endurance_;
 
-  RangeAttribute damage_;
+  attributes::RangeAttribute damage_;
   int accuracy_;
   int evasion_;
   int m_dammage_;
   int m_absorption_;
-  BoundedAttribute mp_;
-  BoundedAttribute hp_;
+  attributes::BoundedAttribute mp_;
+  attributes::BoundedAttribute hp_;
   int speed_;
 };
 

@@ -11,7 +11,7 @@ Party::Party(const boost::uuids::uuid &uid)
 
 Party::~Party() {}
 
-boost::uuids::uuid &uid() {
+const boost::uuids::uuid &Party::uid() {
   return uid_;
 }
 
@@ -20,14 +20,8 @@ void Party::AddMember(Entity *member) {
   members_.push_back(member);
 }
 
-bool Party::RemoveMember(Entity *member) {
-  BOOST_FOREACH (Entity *i, members_) {
-    if (i == member) {
-      members_.erase(i);
-      return true;
-    }
-  }
-  return false;
+void Party::RemoveMember(Entity *member) {
+  members_.erase(std::find(members_.begin(), members_.end(), member));
 }
 
 Entity *Party::GetReadyMember() {
