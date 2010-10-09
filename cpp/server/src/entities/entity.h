@@ -25,13 +25,13 @@ class Entity {
   int intelligence() const;
   int endurance() const;
 
-  const attributes::RangeAttribute &damage() const;
+  const ::fob::server::attributes::RangeAttribute &damage() const;
   int accuracy() const;
   int evasion() const;
   int m_dammage() const;
   int m_absorption() const;
-  const attributes::BoundedAttribute &mp() const;
-  const attributes::BoundedAttribute &hp() const;
+  const ::fob::server::attributes::BoundedAttribute &mp() const;
+  const ::fob::server::attributes::BoundedAttribute &hp() const;
   int speed() const;
 
  protected:
@@ -50,13 +50,13 @@ class Entity {
   int intelligence_;
   int endurance_;
 
-  attributes::RangeAttribute damage_;
+  ::fob::server::attributes::RangeAttribute damage_;
   int accuracy_;
   int evasion_;
   int m_dammage_;
   int m_absorption_;
-  attributes::BoundedAttribute mp_;
-  attributes::BoundedAttribute hp_;
+  ::fob::server::attributes::BoundedAttribute mp_;
+  ::fob::server::attributes::BoundedAttribute hp_;
   int speed_;
 };
 

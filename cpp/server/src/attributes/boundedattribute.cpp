@@ -2,7 +2,6 @@
 
 namespace fob {
 namespace server {
-namespace entities {
 namespace attributes {
 
 BoundedAttribute::BoundedAttribute(int min, int max, int current)
@@ -75,6 +74,5 @@ void BoundedAttribute::Subtract(int value) {
 }
 
 }  // namespace attributes
-}  // namespace entities
 }  // namespace server
 }  // namespace fob

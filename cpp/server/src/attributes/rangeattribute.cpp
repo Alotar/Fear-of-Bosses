@@ -2,7 +2,6 @@
 
 namespace fob {
 namespace server {
-namespace entities {
 namespace attributes {
 
 RangeAttribute::RangeAttribute (int min, int max)
@@ -29,6 +28,5 @@ void RangeAttribute::set_max(int max) {
 }
 
 }  // namespace attributes
-}  // namespace entities
 }  // namespace server
 }  // namespace fob

@@ -3,7 +3,6 @@
 
 namespace fob {
 namespace server {
-namespace entities {
 namespace attributes {
 
 class BoundedAttribute{
@@ -28,7 +27,6 @@ class BoundedAttribute{
 };
 
 }  // namespace attributes
-}  // namespace entities
 }  // namespace server
 }  // namespace fob
 

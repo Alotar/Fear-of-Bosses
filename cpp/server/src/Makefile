@@ -14,6 +14,7 @@ OBJ_CORE = $(SRC_CORE:.cpp=.o)
 ALL = $(OBJ_CORE)
 
 all: $(ALL)
+	make -C attributes
 	make -C entities
   
 $(SERVER_NAME): $(OBJ_CORE)
@@ -21,4 +22,5 @@ $(SERVER_NAME): $(OBJ_CORE)
 
 clean:
 	rm -f $(OBJ_CORE)
+	make -C attributes clean
 	make -C entities clean

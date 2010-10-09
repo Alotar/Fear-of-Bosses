@@ -37,7 +37,7 @@ int Entity::endurance() const {
   return endurance_;
 }
 
-const attributes::RangeAttribute &Entity::damage() const {
+const ::fob::server::attributes::RangeAttribute &Entity::damage() const {
   return damage_;
 }
 
@@ -57,11 +57,11 @@ int Entity::m_absorption() const {
   return m_absorption_;
 }
 
-const attributes::BoundedAttribute &Entity::mp() const {
+const ::fob::server::attributes::BoundedAttribute &Entity::mp() const {
   return mp_;
 }
 
-const attributes::BoundedAttribute &Entity::hp() const {
+const ::fob::server::attributes::BoundedAttribute &Entity::hp() const {
   return hp_;
 }
 

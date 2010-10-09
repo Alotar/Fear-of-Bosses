@@ -3,7 +3,6 @@
 
 namespace fob {
 namespace server {
-namespace entities {
 namespace attributes {
 
 class RangeAttribute {
@@ -23,7 +22,6 @@ class RangeAttribute {
 };
 
 }  // namespace attributes
-}  // namespace entities
 }  // namespace server
 }  // namespace fob
 
