@@ -14,13 +14,11 @@ OBJ_CORE = $(SRC_CORE:.cpp=.o)
 ALL = $(OBJ_CORE)
 
 all: $(ALL)
-	make -C attributes
-	make -C world
+	make -C entities
   
 $(SERVER_NAME): $(OBJ_CORE)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(SERVER_NAME) $(OBJ_CORE) $(LIBS)
 
 clean:
 	rm -f $(OBJ_CORE)
-	make -C attributes clean
-	make -C world clean
+	make -C entities clean

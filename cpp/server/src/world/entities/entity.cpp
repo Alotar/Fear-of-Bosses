@@ -2,6 +2,7 @@
 
 namespace fob {
 namespace server {
+namespace world {
 namespace entities {
 
 Entity::Entity(const boost::uuids::uuid &uid, const std::string &name)
@@ -89,6 +90,7 @@ void Entity::set_speed(int speed) {
   speed_ = speed;
 }
 
-} // namespace entities
-} // namespace server
-} // namespace fob
+}  // namespace entities
+}  // namespace world
+}  // namespace server
+}  // namespace fob

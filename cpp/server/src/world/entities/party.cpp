@@ -4,6 +4,7 @@
 
 namespace fob {
 namespace server {
+namespace world {
 namespace entities {
 
 Party::Party(const boost::uuids::uuid &uid)
@@ -29,6 +30,7 @@ Entity *Party::GetReadyMember() {
   return NULL;
 }
 
-} // namespace entities
-} // namespace server
-} // namespace fob
+}  // namespace entities
+}  // namespace world
+}  // namespace server
+}  // namespace fob

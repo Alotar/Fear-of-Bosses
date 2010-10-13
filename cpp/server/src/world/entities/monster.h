@@ -9,6 +9,7 @@
 
 namespace fob {
 namespace server {
+namespace world {
 namespace entities {
 
 class Monster : public Entity {
@@ -18,6 +19,7 @@ class Monster : public Entity {
 };
 
 }  // namespace entities
+}  // namespace world
 }  // namespace server
 }  // namespace fob
  

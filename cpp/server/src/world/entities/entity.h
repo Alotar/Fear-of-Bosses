@@ -10,6 +10,7 @@
 
 namespace fob {
 namespace server {
+namespace world {
 namespace entities {
 
 class Entity {
@@ -60,8 +61,9 @@ class Entity {
   int speed_;
 };
 
-} // namespace entities
-} // namespace server
-} // namespace fob
+}  // namespace entities
+}  // namespace world
+}  // namespace server
+}  // namespace fob
 
 #endif // FOB_SERVER_ENTITIES_ENTITY_H_

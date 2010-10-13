@@ -8,6 +8,7 @@
 
 namespace fob {
 namespace server {
+namespace world {
 namespace entities {
 
 class Party {
@@ -28,6 +29,7 @@ class Party {
 };
 
 }  // namespace entities
+}  // namespace world
 }  // namespace server
 }  // namespace fob
 
