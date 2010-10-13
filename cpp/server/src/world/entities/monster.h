@@ -1,5 +1,5 @@
-#ifndef FOB_SERVER_ENTITES_MONSTER_H_
-#define FOB_SERVER_ENTITES_MONSTER_H_
+#ifndef FOB_SERVER_WORLD_ENTITES_MONSTER_H_
+#define FOB_SERVER_WORLD_ENTITES_MONSTER_H_
 
 #include <string>
 
@@ -23,4 +23,4 @@ class Monster : public Entity {
 }  // namespace server
 }  // namespace fob
  
-#endif  // FOB_SERVER_ENTITES_MONSTER_H_
+#endif  // FOB_SERVER_WORLD_ENTITES_MONSTER_H_

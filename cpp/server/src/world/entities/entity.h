@@ -1,5 +1,5 @@
-#ifndef FOB_SERVER_ENTITIES_ENTITY_H_
-#define FOB_SERVER_ENTITIES_ENTITY_H_
+#ifndef FOB_SERVER_WORLD_ENTITIES_ENTITY_H_
+#define FOB_SERVER_WORLD_ENTITIES_ENTITY_H_
 
 #include <string>
 
@@ -66,4 +66,4 @@ class Entity {
 }  // namespace server
 }  // namespace fob
 
-#endif // FOB_SERVER_ENTITIES_ENTITY_H_
+#endif // FOB_SERVER_WORLD_ENTITIES_ENTITY_H_
