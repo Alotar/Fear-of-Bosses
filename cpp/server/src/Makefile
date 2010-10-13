@@ -1,26 +1,18 @@
-CC     = g++
-CCOPT  = -Wall -fstack-protector-all
-INCLS  = -I. -I.. -I../.. -I../../..
-CFLAGS = $(CCOPT) $(DEFS) $(INCLS)
-LIBS   = 
+CC=g++
+CFLAGS=-Wall -c -g
+LDFLAGS=
+INCLDS=-I.
 
-.cpp.o:
-	@rm -f $@
-	$(CC) $(CFLAGS) -c $*.cpp -o $@
-  
-SRC_CORE = $(wildcard *.cpp)
-OBJ_CORE = $(SRC_CORE:.cpp=.o)
+SOURCES:=$(wildcard *.cpp attributes/*.cpp world/*.cpp world/entities/*.cpp)
 
-ALL = $(OBJ_CORE)
+OBJECTS=$(SOURCES:.cpp=.o)
+
+ALL = $(OBJECTS)
 
 all: $(ALL)
-	make -C attributes
-	make -C world
-  
-$(SERVER_NAME): $(OBJ_CORE)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(SERVER_NAME) $(OBJ_CORE) $(LIBS)
+
+.cpp.o:
+	$(CC) $(CFLAGS) $(INCLDS) $< -o $@
 
 clean:
-	rm -f $(OBJ_CORE)
-	make -C attributes clean
-	make -C world clean
+	find . -name \*.o -delete 
