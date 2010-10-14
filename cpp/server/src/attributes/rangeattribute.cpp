@@ -20,11 +20,19 @@ int RangeAttribute::max() const {
 }
 
 void RangeAttribute::set_min(int min) {
-  min_ = min;
+  if (min > max_) {
+    min_ = max_;
+  } else {
+    min_ = min;
+  }
 }
 
 void RangeAttribute::set_max(int max) {
-  max_ = max;
+  if (max < min_) {
+    max_ = min_;
+  } else {
+    max_ = max;
+  }
 }
 
 }  // namespace attributes
