@@ -2,6 +2,7 @@
 #define FOB_SERVER_MANAGER_H
 
 #include "world/world.h"
+#include "network/connectionmanager.h"
 
 namespace fob {
 namespace server {
@@ -12,7 +13,8 @@ class Manager {
   ~Manager();
 
  private:
-  world::World world;
+  world::World world_;
+  network::ConnectionManager connection_manager_;
 };
 
 }  // namespace server

@@ -4,7 +4,8 @@ namespace fob {
 namespace server {
 
 Manager::Manager()
-  : world() {}
+  : world_(),
+    connection_manager_() {}
 
 Manager::~Manager() {}
 
