@@ -20,6 +20,10 @@ Message::Message(const std::string &content)
 
 Message::~Message() {}
 
+std::string Message::GetString() {
+  return content_.str();
+}
+
 void Message::Inject(int var) {
   content_ << var << std::endl;
 }

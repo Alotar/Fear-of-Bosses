@@ -22,6 +22,8 @@ class Message {
   Message(const std::string &content);
   virtual ~Message();
 
+  std::string GetString();
+
   void Inject(int var);
   void Inject(const std::string &var);
   void Inject(const boost::uuids::uuid &var);
