@@ -3,7 +3,8 @@ CFLAGS=-Wall -c -g
 LDFLAGS=
 INCLDS=-I.
 
-SOURCES:=$(wildcard *.cpp attributes/*.cpp world/*.cpp world/entities/*.cpp world/items/*.cpp)
+SOURCES:=$(wildcard *.cpp attributes/*.cpp network/*.cpp world/*.cpp \
+                    world/entities/*.cpp world/items/*.cpp )
 
 OBJECTS=$(SOURCES:.cpp=.o)
 
