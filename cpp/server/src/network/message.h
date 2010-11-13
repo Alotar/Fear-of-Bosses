@@ -13,9 +13,14 @@ namespace network {
 class Message {
  public:
   enum MessageType {
-    kChat,
-    kParty,
-    kBattle
+    kTypeLogin,
+    kTypeLogout,
+    kTypeChat
+  };
+
+  enum StdMessage {
+    kMsgRequest,
+    kMsgOK
   };
 
   Message(MessageType type);
@@ -27,12 +32,14 @@ class Message {
   void Inject(int var);
   void Inject(const std::string &var);
   void Inject(const boost::uuids::uuid &var);
+  void Inject(StdMessage msg);
 
   MessageType GetType();
 
   void Extract(int &var);
   void Extract(std::string &var);
   void Extract(boost::uuids::uuid &var);
+  void Extract(StdMessage &var);
 
  private:
   std::stringstream content_;
