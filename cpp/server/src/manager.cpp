@@ -5,7 +5,8 @@ namespace server {
 
 Manager::Manager()
   : world_(),
-    connection_manager_(1234, &inc_msg_) {}
+    connection_manager_(1234, &inc_msg_),
+    chat_manager_(&out_msg_) {}
 
 Manager::~Manager() {}
 
