@@ -94,7 +94,7 @@ void ConnectionManager::Listen() {
   }
 }
 
-void ConnectionManager::Send(const boost::uuids::uuid &client, const std::string &message) {
+void ConnectionManager::Send(boost::uuids::uuid &client, std::string &message) {
   int fd = fd_uid_map_.right.at(client);
   Send(fd, message);
 }
@@ -134,6 +134,7 @@ void ConnectionManager::AddClient(int descriptor) {
 void ConnectionManager::HandleNewClient(int descriptor) {
   Message login(Message::kTypeLogin);
   login.Inject(Message::kMsgRequest);
+  login.Inject(descriptor);
   AddClient(descriptor);
   Send(descriptor, login.GetString());
 }

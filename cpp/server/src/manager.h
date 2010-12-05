@@ -18,6 +18,13 @@ class Manager {
   ~Manager();
 
  private:
+  void LoginClient(int fd, std::string &name);
+  void LogoutClient(boost::uuids::uuid &uid);
+
+  void ManageIncMsg();
+  void ManageOutMsg();
+
+ private:
   world::World world_;
   network::ConnectionManager connection_manager_;
   ChatManager chat_manager_;

@@ -25,7 +25,7 @@ class ConnectionManager {
 
   void Listen();
 
-  void Send(const boost::uuids::uuid &client, const std::string &message);
+  void Send(boost::uuids::uuid &client, std::string &message);
   void RegisterClient(int descriptor, const boost::uuids::uuid &uid);
   void DisconnectClient(const boost::uuids::uuid &client);
 

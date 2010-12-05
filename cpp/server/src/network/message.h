@@ -20,7 +20,7 @@ class Message {
 
   enum StdMessage {
     kMsgRequest,
-    kMsgOK
+    kMsgOk
   };
 
   Message(MessageType type);
