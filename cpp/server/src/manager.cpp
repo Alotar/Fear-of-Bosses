@@ -16,7 +16,6 @@ void Manager::ManageIncMsg() {
     network::Message::MessageType type = msg->GetType();
 
     std::string name;
-    boost::uuids::uuid uid;
     switch (type) {
       case network::Message::kTypeLogin:
         int fd;
@@ -25,10 +24,17 @@ void Manager::ManageIncMsg() {
         LoginClient(fd, name);
         break;
       case network::Message::kTypeLogout:
+        boost::uuids::uuid uid;
         msg->Extract(uid);
         LogoutClient(uid);
         break;
       case network::Message::kTypeChat:
+        network::Message::ChatMessage chat;
+        std::string chat_msg;
+        msg->Extract(chat);
+        msg->Extract(name);
+        msg->Extract(chat_msg);
+        ChatMessage(chat, name, chat_msg);
         break;
     }
 
@@ -52,6 +58,17 @@ void Manager::LogoutClient(boost::uuids::uuid &uid) {
   world_.RemovePlayer(uid);
   chat_manager_.RemoveClient(uid);
   connection_manager_.DisconnectClient(uid);
+}
+
+void Manager::ChatMessage(network::Message::ChatMessage type,
+                          std::string &name,
+                          std::string &msg) {
+  if (type == network::Message::kChatSend) {
+    chat_manager_.Send(name, msg);
+  }
+  else if (type == network::Message::kChatChannel) {
+    chat_manager_.ChangeChannel(name, msg);
+  }
 }
 
 void Manager::ManageOutMsg() {

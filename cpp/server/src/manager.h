@@ -20,6 +20,9 @@ class Manager {
  private:
   void LoginClient(int fd, std::string &name);
   void LogoutClient(boost::uuids::uuid &uid);
+  void ChatMessage(network::Message::ChatMessage type,
+                            std::string &name,
+                            std::string &msg);
 
   void ManageIncMsg();
   void ManageOutMsg();

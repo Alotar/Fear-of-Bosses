@@ -40,6 +40,10 @@ void Message::Inject(StdMessage msg) {
   content_ << msg << std::endl;
 }
 
+void Message::Inject(ChatMessage msg) {
+  content_ << msg << std::endl;
+}
+
 Message::MessageType Message::GetType() {
   int ret_val;
   content_.seekg(0, std::ios_base::beg);
@@ -75,6 +79,15 @@ void Message::Extract(StdMessage &var) {
   int temp_int;
   content_ >> temp_int;
   var = (StdMessage)temp_int;
+  char *temp = new char[16];
+  content_.getline(temp, 16);
+  delete temp;
+}
+
+void Message::Extract(ChatMessage &var) {
+  int temp_int;
+  content_ >> temp_int;
+  var = (ChatMessage)temp_int;
   char *temp = new char[16];
   content_.getline(temp, 16);
   delete temp;

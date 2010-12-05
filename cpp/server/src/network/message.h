@@ -23,6 +23,11 @@ class Message {
     kMsgOk
   };
 
+  enum ChatMessage {
+    kChatSend,
+    kChatChannel
+  };
+
   Message(MessageType type);
   Message(const std::string &content);
   virtual ~Message();
@@ -33,6 +38,7 @@ class Message {
   void Inject(const std::string &var);
   void Inject(const boost::uuids::uuid &var);
   void Inject(StdMessage msg);
+  void Inject(ChatMessage msg);
 
   MessageType GetType();
 
@@ -40,6 +46,7 @@ class Message {
   void Extract(std::string &var);
   void Extract(boost::uuids::uuid &var);
   void Extract(StdMessage &var);
+  void Extract(ChatMessage &var);
 
  private:
   std::stringstream content_;
