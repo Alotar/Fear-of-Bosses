@@ -14,8 +14,10 @@ namespace server {
 
 class Manager {
  public:
-  Manager();
+  Manager(int port);
   ~Manager();
+
+  void Run();
 
  private:
   void LoginClient(int fd, std::string &name);

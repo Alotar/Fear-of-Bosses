@@ -1,14 +1,26 @@
 #include "manager.h"
 
+#include <iostream>
+
 namespace fob {
 namespace server {
 
-Manager::Manager()
+Manager::Manager(int port)
   : world_(),
-    connection_manager_(1234, &inc_msg_),
+    connection_manager_(port, &inc_msg_),
     chat_manager_(&out_msg_) {}
 
 Manager::~Manager() {}
+
+void Manager::Run() {
+  connection_manager_.Init();
+  std::cout << "Server is running..." << std::endl;
+  for (;;) {
+    connection_manager_.Listen();
+    ManageIncMsg();
+    ManageOutMsg();
+  }
+}
 
 void Manager::ManageIncMsg() {
   while (!inc_msg_.empty()) {
