@@ -50,8 +50,8 @@ void Manager::ManageIncMsg() {
         break;
     }
 
-    delete msg;
     inc_msg_.pop();
+    delete msg;
   }
 }
 

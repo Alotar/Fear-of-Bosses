@@ -10,7 +10,13 @@ World::World()
 World::~World() {}
 
 const boost::uuids::uuid World::AddPlayer(const std::string &name) {
-  std::string dup = *std::find(player_name_list_.begin(), player_name_list_.end(), name);
+  std::vector<std::string>::iterator iter = 
+                          std::find(player_name_list_.begin(),
+                                    player_name_list_.end(), name);
+  std::string dup;
+  if (iter != player_name_list_.end()) {
+    dup = *iter;
+  }
   if(dup == name) {  // player already exists
     typedef boost::unordered_map<boost::uuids::uuid, entities::Player*> umap;
     for(umap::iterator iter = player_list_.begin(); iter != player_list_.end(); iter++) {

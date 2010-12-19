@@ -62,7 +62,7 @@ void ConnectionManager::Listen() {
         if (new_fd != -1) {
           HandleNewClient(new_fd);
 
-          std::cout << "New client from " << inet_ntoa(client_address.sin_addr) << std::endl;
+          std::cout << ", from " << inet_ntoa(client_address.sin_addr) << std::endl;
         }
       }
       else {  // client sending data
@@ -105,14 +105,18 @@ void ConnectionManager::Send(int descriptor, const std::string &message) {
   memcpy(msg+sizeof(length), message.c_str(), length);
   length = htons(length);
   memcpy(msg, &length, sizeof(length));
+  length = ntohs(length);
 
   if (!FD_ISSET(descriptor, &clients_)) {
     delete msg;
     throw NetworkException("Client is not registered");
   }
-  uint16_t left_to_send = ntohs(length);
+
+  uint16_t left_to_send = length + sizeof(length);
+  uint16_t already_sent = 0;
   while (left_to_send > 0) {
-    int sent = send(descriptor, msg, left_to_send, 0);
+    int sent = send(descriptor, msg+already_sent, left_to_send, 0);
+    already_sent += sent;
     left_to_send -= sent;
   }
 
@@ -132,6 +136,7 @@ void ConnectionManager::AddClient(int descriptor) {
 }
 
 void ConnectionManager::HandleNewClient(int descriptor) {
+  std::cout << "New client on socket " << descriptor;
   Message login(Message::kTypeLogin);
   login.Inject(Message::kMsgRequest);
   login.Inject(descriptor);

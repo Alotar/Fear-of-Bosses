@@ -83,6 +83,7 @@ void Manager::Run() {
         default:
           break;
       }
+      delete msg_in;
     }
   }
 }

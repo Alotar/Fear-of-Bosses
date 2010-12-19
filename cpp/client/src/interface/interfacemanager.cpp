@@ -18,8 +18,10 @@ void InterfaceManager::Print(Interface out, std::string &msg) {
   switch (out) {
     case kStandard:
       std::cout << msg;
+      break;
     case kChat:
       std::cout << msg;
+      break;
   }
 }
 
@@ -28,9 +30,11 @@ std::string InterfaceManager::GetString(InterfaceManager::Interface in) {
   switch (in) {
     case kStandard:
       std::cin >> msg;
+      break;
     case kChat:
       std::cout << "Chat: ";
       std::cin >> msg;
+      break;
   }
   return msg;
 }

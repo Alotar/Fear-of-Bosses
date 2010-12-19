@@ -4,15 +4,14 @@
 #include "network/networkexception.h"
 
 int main(int argc, char *argv[]) {
-  if (argc != 3) {
-    std::cout << "Usage: " << argv[0] << " ip port." << std::endl;
+  if (argc != 2) {
+    std::cout << "Usage: " << argv[0] << " ip" << std::endl;
     return 1;
   }
   try {
     std::string ip = argv[1];
-    uint16_t port = atoi(argv[2]);
 
-    fob::client::Manager manager(ip, port);
+    fob::client::Manager manager(ip, 30123);
 
     manager.Init();
     manager.Run();

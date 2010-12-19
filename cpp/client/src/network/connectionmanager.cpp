@@ -39,7 +39,7 @@ void ConnectionManager::Init() {
 }
 
 void ConnectionManager::Connect() {
-  if (initialized_) {
+  if (!initialized_) {
     throw NetworkException("Connecting with uninitialized manager.");
   }
 
@@ -58,10 +58,13 @@ void ConnectionManager::Send(std::string &message) {
   memcpy(msg+sizeof(length), message.c_str(), length);
   length = htons(length);
   memcpy(msg, &length, sizeof(length));
+  length = ntohs(length);
 
-  uint16_t left_to_send = ntohs(length);
+  uint16_t left_to_send = length + sizeof(length);
+  uint16_t already_sent = 0;
   while (left_to_send > 0) {
     int sent = send(socket_, msg, left_to_send, 0);
+    already_sent += sent;
     left_to_send -= sent;
   }
 
