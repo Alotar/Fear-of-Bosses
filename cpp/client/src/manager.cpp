@@ -1,5 +1,7 @@
 #include "manager.h"
 
+#include <iostream>
+
 namespace fob {
 namespace client {
 
@@ -67,9 +69,11 @@ void Manager::Run() {
     } else if (key == 27) {  // Escape
       running = false;
     }
+    /*std::string message = interface_manager_.GetString(interface::InterfaceManager::kChat);
+    chat_manager_.Send(message);*/
 
     network::Message *msg_in = connection_manager_.Listen(false);
-    if (msg_in != NULL) {  // New message incoming
+    while (msg_in != NULL) {  // New message incoming
       network::Message::MessageType msg_type = msg_in->GetType();
       switch (msg_type) {
         case network::Message::kTypeChat: {
@@ -84,6 +88,7 @@ void Manager::Run() {
           break;
       }
       delete msg_in;
+      msg_in = connection_manager_.Listen(false);
     }
   }
 }

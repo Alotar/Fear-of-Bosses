@@ -1,5 +1,7 @@
 #include "connectionmanager.h"
 
+#include <iostream>
+
 #include <cstring>
 #include <arpa/inet.h>
 #include <sys/select.h>
@@ -78,8 +80,8 @@ Message *ConnectionManager::Listen(bool wait) {
 
     FD_ZERO(&fds);
     FD_SET(socket_, &fds);
+    tv.tv_sec = 1;  // 1s
     tv.tv_sec = 0;
-    tv.tv_sec = 10000;  // 10 ms
 
     int n = select(socket_+1, &fds, NULL, NULL, &tv);
     if (n == 0) {  // Timeout

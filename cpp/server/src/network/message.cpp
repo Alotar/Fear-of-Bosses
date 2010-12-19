@@ -70,8 +70,8 @@ void Message::Extract(std::string &var) {
 
 void Message::Extract(boost::uuids::uuid &var) {
   content_ >> var;
-  char *temp = new char[16];
-  content_.getline(temp, 16);
+  char *temp = new char[40];
+  content_.getline(temp, 40);
   delete temp;
 }
 
