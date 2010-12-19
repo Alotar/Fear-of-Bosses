@@ -20,7 +20,7 @@ class ConnectionManager {
   void Disconnect();
 
   void Send(std::string &message);
-  Message *Listen();
+  Message *Listen(bool wait = true);
 
  private:
   bool initialized_;

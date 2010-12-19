@@ -28,6 +28,7 @@ class Message {
     kChatChannel
   };
 
+ public:
   Message(MessageType type);
   Message(const std::string &content);
   virtual ~Message();

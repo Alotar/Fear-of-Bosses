@@ -3,7 +3,7 @@ CFLAGS=-Wall -c -g
 LDFLAGS=
 INCLDS=-I.
 
-SOURCES:=$(wildcard *.cpp network/*.cpp)
+SOURCES:=$(wildcard *.cpp network/*.cpp interface/*.cpp)
 
 OBJECTS=$(SOURCES:.cpp=.o)
 

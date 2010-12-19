@@ -2,6 +2,8 @@
 
 #include <cstring>
 #include <arpa/inet.h>
+#include <sys/select.h>
+#include <sys/time.h>
 
 #include "networkexception.h"
 
@@ -66,7 +68,22 @@ void ConnectionManager::Send(std::string &message) {
   delete msg;
 }
 
-Message *ConnectionManager::Listen() {
+Message *ConnectionManager::Listen(bool wait) {
+  if (!wait) {  // If it's not required to wait
+    fd_set fds;
+    struct timeval tv;
+
+    FD_ZERO(&fds);
+    FD_SET(socket_, &fds);
+    tv.tv_sec = 0;
+    tv.tv_sec = 10000;  // 10 ms
+
+    int n = select(socket_+1, &fds, NULL, NULL, &tv);
+    if (n == 0) {  // Timeout
+      return NULL;
+    }
+  }
+
   uint16_t msg_len;
   int rec_len = recv(socket_, &msg_len, sizeof(msg_len), 0);
   if (rec_len <= 0) {
