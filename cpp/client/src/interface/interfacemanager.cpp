@@ -32,7 +32,7 @@ std::string InterfaceManager::GetString(InterfaceManager::Interface in) {
       std::getline(std::cin, msg);
       break;
     case kChat:
-      std::cout << "Chat: ";
+      std::cout << ">> ";
       std::getline(std::cin, msg);
       break;
   }
