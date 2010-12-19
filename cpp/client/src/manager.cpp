@@ -68,6 +68,10 @@ void Manager::Run() {
       chat_manager_.Send(message);
     } else if (key == 27) {  // Escape
       running = false;
+      network::Message msg(network::Message::kTypeLogout);
+      msg.Inject(uid_);
+      std::string msg_str = msg.GetString();
+      connection_manager_.Send(msg_str);
     }
     /*std::string message = interface_manager_.GetString(interface::InterfaceManager::kChat);
     chat_manager_.Send(message);*/

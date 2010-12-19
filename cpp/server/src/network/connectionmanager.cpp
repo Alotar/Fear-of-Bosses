@@ -69,7 +69,6 @@ void ConnectionManager::Listen() {
         uint16_t msg_len;
         int rec_len = recv(i, &msg_len, sizeof(msg_len), 0);
         if (rec_len <= 0) {
-          std::cout << "Client " << i << " has disconnected." << std::endl;
           DisconnectClient(i);
         }
         else {
@@ -145,6 +144,7 @@ void ConnectionManager::HandleNewClient(int descriptor) {
 }
 
 void ConnectionManager::DisconnectClient(int descriptor) {
+  std::cout << "Client " << descriptor << " has disconnected." << std::endl;
   Message *logout = new Message(Message::kTypeLogout);
   logout->Inject(fd_uid_map_.left.at(descriptor));
   inc_msg_->push(logout);
