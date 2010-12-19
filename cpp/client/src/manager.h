@@ -17,6 +17,7 @@ class Manager {
   Manager(const std::string &ip, uint16_t port);
   virtual ~Manager();
 
+  void Init();
   void Run();
 
  private:

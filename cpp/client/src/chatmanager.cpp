@@ -10,6 +10,10 @@ ChatManager::ChatManager(network::ConnectionManager *cm,
 
 ChatManager::~ChatManager() {}
 
+void ChatManager::set_name(std::string &name) {
+  name_ = name;
+}
+
 void ChatManager::Send(std::string &message) {
   network::Message msg(network::Message::kTypeChat);
   if (message.compare(0,3,"/j ") == 0) {

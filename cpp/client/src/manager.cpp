@@ -10,7 +10,7 @@ Manager::Manager(const std::string &ip, uint16_t port)
 
 Manager::~Manager() {}
 
-void Manager::Run() {
+void Manager::Init() {
   connection_manager_.Init();
   std::string const_str = "Name: ";
   interface_manager_.Print(interface::InterfaceManager::kStandard, const_str);
@@ -52,18 +52,18 @@ void Manager::Run() {
   }
   delete login_msg;
 
-  {
-    std::string greet = "You are logged as " + name_ + " in the channel #main";
-    interface_manager_.Print(interface::InterfaceManager::kChat, greet);
-  }
+  std::string greet = "You are logged as " + name_ + " in the channel #main";
+  interface_manager_.Print(interface::InterfaceManager::kChat, greet);
+}
 
+void Manager::Run() {
   // Main cycle
   bool running = true;
   while (running) {
     char key = interface_manager_.GetKeyPress();
     if (key == 10) {  // Return
-      const_str = interface_manager_.GetString(interface::InterfaceManager::kChat);
-      chat_manager_.Send(const_str);
+      std::string message = interface_manager_.GetString(interface::InterfaceManager::kChat);
+      chat_manager_.Send(message);
     } else if (key == 27) {  // Escape
       running = false;
     }

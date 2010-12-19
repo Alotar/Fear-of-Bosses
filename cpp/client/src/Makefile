@@ -10,6 +10,7 @@ OBJECTS=$(SOURCES:.cpp=.o)
 ALL = $(OBJECTS)
 
 all: $(ALL)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o client
 
 .cpp.o:
 	$(CC) $(CFLAGS) $(INCLDS) $< -o $@
